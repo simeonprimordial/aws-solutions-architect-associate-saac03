@@ -1,0 +1,22 @@
+# AWS Credentials & Sensitive Files
+.env
+*.pem
+credentials
+config
+*.env
+
+# OS Files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+
+# Large files
+*.mp4
+*.zip
+*.rar
+
+# Logs
+*.log
