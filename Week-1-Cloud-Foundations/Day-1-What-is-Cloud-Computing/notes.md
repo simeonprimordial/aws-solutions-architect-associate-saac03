@@ -48,4 +48,3 @@
 - 
 
 ---
-**Lab Done?** → Move to `lab.md`
