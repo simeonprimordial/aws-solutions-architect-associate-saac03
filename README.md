@@ -43,5 +43,3 @@ IAM • VPC • EC2 • S3 • RDS • Lambda • Well-Architected Framework + m
 **Let's Build on AWS!** 🚀
 
 ---
-
-Last Updated: [Insert Date]
