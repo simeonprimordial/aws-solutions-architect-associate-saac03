@@ -50,7 +50,4 @@
 - Know the clear difference between IaaS, PaaS, and SaaS.
 - On-Demand pricing has **no upfront commitment**.
 
-## Questions I Still Have
-- 
-
 ---
