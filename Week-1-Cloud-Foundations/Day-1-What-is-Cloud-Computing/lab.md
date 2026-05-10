@@ -1,7 +1,6 @@
 # Day 1 Lab: AWS Free Tier Account Setup & Console Exploration
 
 **Week:** 1 | **Day:** 1  
-**Status:** [ ] Completed
 
 ## 🎯 Objective
 - Create AWS Free Tier account
