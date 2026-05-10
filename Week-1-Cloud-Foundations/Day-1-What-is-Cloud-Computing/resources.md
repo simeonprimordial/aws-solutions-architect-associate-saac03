@@ -24,17 +24,3 @@
 - [AWS Pricing Calculator](https://calculator.aws/) – Very useful for labs
 
 ---
-
-## My Notes on These Resources
-
-- [Write short summary after reading/watching each one]
-- Main takeaway from official AWS page: ___________________________
-
----
-
-## Bookmark / To Review Later
-- 
-
----
-
-**Last Updated:** [Insert Date]
