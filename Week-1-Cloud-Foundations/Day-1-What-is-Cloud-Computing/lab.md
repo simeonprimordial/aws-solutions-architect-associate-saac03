@@ -19,9 +19,7 @@
 All screenshots are saved in the `screenshots/` folder in this directory.
 
 ## Portfolio Post (Ready to Copy)
-> Day 1 of my AWS SAA-C03 journey is complete! 🚀  
-> Created my AWS Free Tier account, secured it with MFA, and explored the console.  
-> #AWS #SaaC03 #CloudComputing #BaseStackAcademy #LearningInPublic
+> https://www.linkedin.com/posts/simeon-siaka-8a8367312_aws-cloudcomputing-learninginpublic-activity-7451872136048275456-Tlu8?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE9uXkAB5D5TBwYRyeaUyv9whXdIADy8zoo
 
 ## Challenges Faced
 -
