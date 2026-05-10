@@ -1,7 +1,4 @@
 # Week 1 · Day 4 · Lab — Build Your AWS Cost Control Centre
-
-> 🌟 **Portfolio Goal:** Screenshot your completed AWS Budgets alert + Pricing Calculator estimate and post to LinkedIn. Tag `#AWSCostControl #BaseStackAcademy`
-
 ---
 
 ## Step 1 — Activate Your Cost Safety Net (AWS Budgets)
