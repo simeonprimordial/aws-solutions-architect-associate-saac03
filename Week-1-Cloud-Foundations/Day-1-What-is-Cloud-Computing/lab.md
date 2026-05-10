@@ -21,11 +21,6 @@ All screenshots are saved in the `screenshots/` folder in this directory.
 ## Portfolio Post (Ready to Copy)
 > https://www.linkedin.com/posts/simeon-siaka-8a8367312_aws-cloudcomputing-learninginpublic-activity-7451872136048275456-Tlu8?utm_source=share&utm_medium=member_desktop&rcm=ACoAAE9uXkAB5D5TBwYRyeaUyv9whXdIADy8zoo
 
-## Challenges Faced
--
-
-## Lessons Learned
--
 
 ---
 **Date Completed:** [Insert Date]
