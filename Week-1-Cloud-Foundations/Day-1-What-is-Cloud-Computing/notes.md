@@ -37,13 +37,13 @@
 - Multi-Cloud
 
 ## 💡 Real-World Nigerian Scenario
-Consider Chidi, who runs a Nigerian fintech startup processing mobile payments. 
-Before the cloud, he needed ₦15 million to buy servers, hire a systems administrator, 
-and rent data centre space —and he still had to guess how much capacity to buy. 
-Using AWS, he spends only what he needs each month. When his app goes viral during 
-a Christmas promotion, AWS automatically handles the traffic surge. On quiet Tuesday 
-mornings, costs drop to near zero. He never pays for idle hardware. This is cloud 
-computing
+   Consider Chidi, who runs a Nigerian fintech startup processing mobile payments. 
+   Before the cloud, he needed ₦15 million to buy servers, hire a systems administrator, 
+   and rent data centre space —and he still had to guess how much capacity to buy. 
+   Using AWS, he spends only what he needs each month. When his app goes viral during 
+   a Christmas promotion, AWS automatically handles the traffic surge. On quiet Tuesday 
+   mornings, costs drop to near zero. He never pays for idle hardware. This is cloud 
+   computing
 
 ## ⚠️ Exam Tips
 - Always remember there are **5** characteristics.
