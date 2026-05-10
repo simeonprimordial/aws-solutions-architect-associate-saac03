@@ -23,4 +23,3 @@ All screenshots are saved in the `screenshots/` folder in this directory.
 
 
 ---
-**Date Completed:** [Insert Date]
