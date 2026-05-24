@@ -55,12 +55,6 @@ All screenshots are stored in the `/screenshots` folder:
 
 ---
 
-## Portfolio Post
-LinkedIn post is available in:
-`/portfolio-post/linkedin-post.md`
-
----
-
 ## Challenges & Blockers
 See `/notes/challenges.md` for issues I ran into and how I resolved them.
 
