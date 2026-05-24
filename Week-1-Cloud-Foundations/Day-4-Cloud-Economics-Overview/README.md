@@ -66,24 +66,8 @@ All screenshots stored in `/screenshots`:
 
 ---
 
-## Portfolio Artifact
-LinkedIn post in `/portfolio-post/linkedin-post.md`
-Pricing Calculator public link in `/resources/pricing-calculator-notes.md`
-
----
-
 ## Challenges & Blockers
 See `/notes/challenges.md`
-
----
-
-## Roadmap / Next Steps
-- [x] Day 1 — Cloud Computing Foundations
-- [x] Day 2 — AWS Global Infrastructure
-- [x] Day 3 — Shared Responsibility Model
-- [x] Day 4 — Cloud Economics
-- [ ] Day 5 — Core AWS Services Overview (EC2, S3, IAM, RDS, Lambda)
-- [ ] Week 2 — Begin SAA-C03 practice questions
 
 ---
 
