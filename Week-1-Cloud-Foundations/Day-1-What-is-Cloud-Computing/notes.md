@@ -1,53 +1,87 @@
-# Week 1 - Day 1: What Is Cloud Computing?
+# What Is Cloud Computing?
 
-**Course:** BaseStack Academy AWS Cloud Accelerator - Cohort 1  
-**Date:** [Insert Date Here]
+Cloud computing is the delivery of computing services such as servers, storage, databases, networking, and software over the internet.
 
-## 📌 Key Takeaways
-- Cloud Computing = Delivering computing resources (servers, storage, databases, networking, etc.) over the internet on-demand.
-- Instead of buying and maintaining physical hardware, you rent what you need from providers like AWS.
+Instead of buying and maintaining physical servers, businesses can rent resources on-demand from providers like AWS.
 
-## 🔑 5 Essential Characteristics of Cloud Computing (NIST)
+## Benefits
+- Lower upfront costs
+- Scalability
+- High availability
+- Faster deployment
+- Pay-as-you-go pricing
+```
 
-1. **On-Demand Self-Service**  
-   Provision resources instantly without human interaction.
+---
 
-2. **Broad Network Access**  
-   Available over the network and accessed through standard mechanisms.
+# Key Concepts
 
-3. **Resource Pooling**  
-   Provider’s resources are pooled to serve multiple customers (multi-tenancy).
+## On-Demand Self-Service
+Provision resources instantly without human interaction from the provider.
 
-4. **Rapid Elasticity**  
-   Resources can scale out or in automatically/quickly.
+## Broad Network Access
+Access cloud services from any device over the internet.
 
-5. **Measured Service**  
-   Usage is metered and you pay only for what you consume.
+## Resource Pooling
+Multiple customers share physical infrastructure securely using multi-tenancy.
 
-## Service Models
+## Rapid Elasticity
+Scale resources up or down automatically based on demand.
 
-- **IaaS** (Infrastructure as a Service) → EC2  
-- **PaaS** (Platform as a Service)  
-- **SaaS** (Software as a Service) → Gmail, Netflix
+## Measured Service
+Pay only for the resources consumed.
+```
 
-## Deployment Models
-- Public Cloud
-- Private Cloud
-- Hybrid Cloud
-- Multi-Cloud
+---
 
-## 💡 Real-World Nigerian Scenario
-   Consider Chidi, who runs a Nigerian fintech startup processing mobile payments. 
-   Before the cloud, he needed ₦15 million to buy servers, hire a systems administrator, 
-   and rent data centre space —and he still had to guess how much capacity to buy. 
-   Using AWS, he spends only what he needs each month. When his app goes viral during 
-   a Christmas promotion, AWS automatically handles the traffic surge. On quiet Tuesday 
-   mornings, costs drop to near zero. He never pays for idle hardware. This is cloud 
-   computing
+# Cloud Service Models
 
-## ⚠️ Exam Tips
-- Always remember there are **5** characteristics.
-- Know the clear difference between IaaS, PaaS, and SaaS.
-- On-Demand pricing has **no upfront commitment**.
+## IaaS (Infrastructure as a Service)
+Provides virtualized computing resources such as EC2.
+
+Example:
+- AWS EC2
+
+## PaaS (Platform as a Service)
+Provides a managed platform for application deployment.
+
+Example:
+- AWS Elastic Beanstalk
+
+## SaaS (Software as a Service)
+Provides fully managed software applications.
+
+Examples:
+- Gmail
+- Dropbox
+- Google Drive
+```
+
+---
+
+# Deployment Models
+
+## Public Cloud
+Cloud infrastructure shared among multiple customers.
+
+## Private Cloud
+Dedicated cloud environment for a single organization.
+
+## Hybrid Cloud
+Combination of on-premises and cloud infrastructure.
+
+## Multi-Cloud
+Using multiple cloud providers simultaneously.
+```
+
+---
+
+# Common Exam Traps
+
+- Cloud computing has FIVE essential characteristics.
+- Understand the difference between IaaS, PaaS, and SaaS.
+- On-Demand pricing has no upfront commitment.
+- Reserved Instances and Savings Plans require commitment.
+```
 
 ---
