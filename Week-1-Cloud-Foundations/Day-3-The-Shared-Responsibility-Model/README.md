@@ -57,11 +57,6 @@ All screenshots stored in `/screenshots`:
 
 ---
 
-## Portfolio Artifact
-LinkedIn post is in `/portfolio-post/linkedin-post.md`
-
----
-
 ## Challenges & Blockers
 See `/notes/challenges.md`
 
