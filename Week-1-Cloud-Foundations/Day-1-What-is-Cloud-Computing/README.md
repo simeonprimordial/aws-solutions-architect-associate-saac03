@@ -53,5 +53,3 @@ Screenshots are stored inside the `/screenshots` folder.
 
 ## Goal
 Preparing for the AWS Certified Solutions Architect Associate (SAA-C03).
-```
----

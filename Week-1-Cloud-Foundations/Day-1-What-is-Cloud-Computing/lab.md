@@ -52,5 +52,3 @@
 4. Add email notification.
 5. Confirm budget creation.
 ```
-
----

@@ -78,4 +78,3 @@ Using multiple cloud providers simultaneously.
 - Understand the difference between IaaS, PaaS, and SaaS.
 - On-Demand pricing has no upfront commitment.
 - Reserved Instances and Savings Plans require commitment.
-```
