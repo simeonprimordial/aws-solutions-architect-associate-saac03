@@ -53,12 +53,6 @@ All screenshots stored in `/screenshots`:
 
 ---
 
-## Portfolio Artifact
-My published AWS Regions cheat sheet (GitHub Gist) is linked in:
-`/portfolio-post/linkedin-post.md`
-
----
-
 ## Challenges & Blockers
 See `/notes/challenges.md` for issues encountered and how I solved them.
 
