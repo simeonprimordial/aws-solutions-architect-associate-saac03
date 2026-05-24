@@ -60,15 +60,5 @@ See `/notes/challenges.md` for issues I ran into and how I resolved them.
 
 ---
 
-## Roadmap / Next Steps
-- [ ] Day 2 —  AWS Global Infrastructure
-- [ ] Day 3 —  The Shared Responsibility Model 
-- [ ] Day 4 —  Core AWS Services Overview
-- [ ] Day 5 —  IAM & Account Security Setup
-- [ ] Week 2 —  IAM & Security 
-- [ ] Target exam date: TBD
-
----
-
 ## Goal
 Passing the **AWS Certified Solutions Architect Associate (SAA-C03)**.
