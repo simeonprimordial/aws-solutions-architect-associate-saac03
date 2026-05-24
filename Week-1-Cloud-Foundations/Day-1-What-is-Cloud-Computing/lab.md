@@ -51,4 +51,3 @@
 3. Create Zero Spend Budget.
 4. Add email notification.
 5. Confirm budget creation.
-```
