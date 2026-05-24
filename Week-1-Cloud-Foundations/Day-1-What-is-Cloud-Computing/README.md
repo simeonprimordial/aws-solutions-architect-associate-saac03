@@ -52,7 +52,7 @@ Screenshots are stored inside the `/screenshots` folder.
 ---
 
 ## Portfolio Post
-My LinkedIn post is available in:
+My LinkedIn/Twitter post is available in:
 `/portfolio-post/linkedin-post.md`
 
 ---
@@ -60,5 +60,4 @@ My LinkedIn post is available in:
 ## Goal
 Preparing for the AWS Certified Solutions Architect Associate (SAA-C03).
 ```
-
-
+---

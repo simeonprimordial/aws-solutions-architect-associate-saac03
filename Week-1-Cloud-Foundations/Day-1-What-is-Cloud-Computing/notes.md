@@ -10,7 +10,6 @@ Instead of buying and maintaining physical servers, businesses can rent resource
 - High availability
 - Faster deployment
 - Pay-as-you-go pricing
-```
 
 ---
 
@@ -30,7 +29,6 @@ Scale resources up or down automatically based on demand.
 
 ## Measured Service
 Pay only for the resources consumed.
-```
 
 ---
 
@@ -55,7 +53,6 @@ Examples:
 - Gmail
 - Dropbox
 - Google Drive
-```
 
 ---
 
@@ -72,7 +69,6 @@ Combination of on-premises and cloud infrastructure.
 
 ## Multi-Cloud
 Using multiple cloud providers simultaneously.
-```
 
 ---
 
@@ -83,5 +79,3 @@ Using multiple cloud providers simultaneously.
 - On-Demand pricing has no upfront commitment.
 - Reserved Instances and Savings Plans require commitment.
 ```
-
----
