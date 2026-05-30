@@ -1,0 +1,34 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyDisableCloudTrail",
+      "Effect": "Deny",
+      "Action": [
+        "cloudtrail:StopLogging",
+        "cloudtrail:DeleteTrail",
+        "cloudtrail:UpdateTrail"
+      ],
+      "Resource": "*"
+    }
+  ]
+}
+
+/*
+  WHY THIS SCP EXISTS:
+  CloudTrail is the primary audit log for every AWS account.
+  It records every API call — who did what, when, and from where.
+
+  This SCP prevents:
+  - StopLogging: pausing the trail (creates a gap in the audit record)
+  - DeleteTrail: permanently removing the trail configuration
+  - UpdateTrail: redirecting logs to an attacker-controlled S3 bucket
+    (the least obvious attack — logging appears active but goes elsewhere)
+
+  Attach at Root level. No OU or member account root user can override it.
+  Satisfies ISO 27001, SOC 2, CBN IT risk management, and POPIA requirements
+  for immutable audit logs.
+
+  NOTE: This SCP does not restrict the Management Account.
+  Protect the Management Account's CloudTrail separately via IAM policies.
+*/

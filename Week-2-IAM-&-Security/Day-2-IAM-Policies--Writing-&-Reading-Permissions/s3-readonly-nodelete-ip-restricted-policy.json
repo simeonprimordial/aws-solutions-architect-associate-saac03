@@ -1,0 +1,28 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "AllowReadOnlyMyBucketOnlyFromKnownIP",
+      "Effect": "Allow",
+      "Action": [
+        "s3:GetObject",
+        "s3:ListBucket"
+      ],
+      "Resource": [
+        "arn:aws:s3:::my-app-bucket-*",
+        "arn:aws:s3:::my-app-bucket-*/*"
+      ],
+      "Condition": {
+        "IpAddress": {
+          "aws:SourceIp": "YOUR_PUBLIC_IP/32"
+        }
+      }
+    },
+    {
+      "Sid": "DenyDeleteEverywhere",
+      "Effect": "Deny",
+      "Action": "s3:DeleteObject",
+      "Resource": "*"
+    }
+  ]
+}

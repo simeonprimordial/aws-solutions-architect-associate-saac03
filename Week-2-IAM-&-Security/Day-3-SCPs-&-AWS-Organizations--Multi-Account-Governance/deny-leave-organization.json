@@ -1,0 +1,30 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyLeaveOrganization",
+      "Effect": "Deny",
+      "Action": "organizations:LeaveOrganization",
+      "Resource": "*"
+    }
+  ]
+}
+
+/*
+  WHY THIS SCP EXISTS:
+  Any account that successfully calls LeaveOrganization instantly escapes:
+  - All SCPs (every governance guardrail disappears immediately)
+  - Consolidated billing (cost visibility is lost)
+  - Security Hub and AWS Config aggregation
+  - Any centralised logging configuration
+
+  In the seconds between leaving and detection, a compromised account
+  could perform unrestricted actions with no guardrails.
+
+  This SCP closes that escape hatch. Attach at Root level.
+  Even the member account root user cannot leave the organisation.
+
+  The Management Account root user (not subject to SCPs) can still
+  remove accounts from the org if genuinely needed — this maintains
+  a controlled emergency override.
+*/

@@ -1,0 +1,51 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyNonApprovedRegions",
+      "Effect": "Deny",
+      "Action": "*",
+      "Resource": "*",
+      "Condition": {
+        "StringNotIn": {
+          "aws:RequestedRegion": [
+            "eu-west-1",
+            "af-south-1"
+          ]
+        },
+        "StringNotEquals": {
+          "aws:PrincipalARN": "arn:aws:iam::*:role/GlobalBreakGlassRole"
+        }
+      }
+    }
+  ]
+}
+
+/*
+  WHY THIS SCP EXISTS:
+  Data residency control — ensures all AWS resources are created only in
+  approved regions. Any API call requesting a resource in a non-approved
+  region is blocked before AWS provisions anything.
+
+  Approved regions:
+  - af-south-1 (Cape Town) — primary region for African data residency
+  - eu-west-1 (Ireland)    — EU data residency, GDPR-compliant
+
+  IMPORTANT CAVEAT — GLOBAL SERVICES:
+  The aws:RequestedRegion condition does not apply to globally-scoped services:
+  IAM, CloudFront, Route 53, STS, AWS Organizations, AWS Support.
+  These services operate globally and are unaffected by this SCP.
+  This is expected and correct behaviour — IAM has no regional scope.
+
+  BREAK-GLASS EXEMPTION:
+  The GlobalBreakGlassRole is excluded from this restriction.
+  Use only in disaster recovery scenarios where an approved region
+  is unavailable and operations must temporarily continue in another.
+  Access to this role should be tightly controlled and audited.
+
+  To restrict to af-south-1 ONLY (e.g. South African data sovereignty):
+  Remove "eu-west-1" from the approved region list.
+
+  Attach at Root level for organisation-wide enforcement,
+  or at specific OUs if only certain accounts require the restriction.
+*/
