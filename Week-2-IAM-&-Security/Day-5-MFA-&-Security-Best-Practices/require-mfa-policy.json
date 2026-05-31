@@ -1,0 +1,65 @@
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Sid": "DenyWithoutMFA",
+      "Effect": "Deny",
+      "NotAction": [
+        "iam:CreateVirtualMFADevice",
+        "iam:EnableMFADevice",
+        "iam:GetUser",
+        "iam:ListMFADevices",
+        "iam:ListVirtualMFADevices",
+        "iam:ResyncMFADevice",
+        "sts:GetSessionToken"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "BoolIfExists": {
+          "aws:MultiFactorAuthPresent": "false"
+        }
+      }
+    }
+  ]
+}
+
+/*
+  HOW THIS POLICY WORKS:
+
+  Effect: Deny
+  Denies all AWS actions EXCEPT those listed in NotAction.
+
+  NotAction (exceptions from the Deny):
+  - iam:CreateVirtualMFADevice  — create the MFA device record
+  - iam:EnableMFADevice         — link the device to the user account
+  - iam:GetUser                 — view own user details
+  - iam:ListMFADevices          — check what MFA devices are registered
+  - iam:ListVirtualMFADevices   — list available virtual MFA devices
+  - iam:ResyncMFADevice         — resync if codes are out of sync
+  - sts:GetSessionToken         — obtain a session token after MFA enrolment
+
+  Without these exceptions in NotAction, a user locked out by this policy
+  could not even set up MFA — creating a permanent lockout requiring admin
+  intervention for every new user. The exceptions are required.
+
+  Condition: BoolIfExists aws:MultiFactorAuthPresent = false
+  The Deny only fires when the session was authenticated WITHOUT MFA.
+  If MFA was used at login, aws:MultiFactorAuthPresent = true and the
+  condition does not match — the Deny does not trigger.
+
+  BoolIfExists (not Bool):
+  BoolIfExists handles the case where the key is absent (CLI calls
+  using access keys never have this key set). Bool would fail in those
+  cases. BoolIfExists evaluates: "if the key exists and is false, deny".
+
+  ATTACH TO:
+  All user groups except the IAM Administrators group.
+  The Administrators group should enforce MFA separately at the role
+  assumption level to avoid edge cases.
+
+  RESULT:
+  A user who logs in without MFA can ONLY set up MFA. Once they
+  re-authenticate with MFA, normal permissions are restored.
+  A user who tries to skip MFA setup is locked out indefinitely until
+  they enrol.
+*/

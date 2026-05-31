@@ -1,0 +1,141 @@
+// ============================================================
+// CLOUDTRAIL LOG SAMPLES — Week 2 Day 4
+// Real-format annotated examples from today's lab
+// ============================================================
+
+
+// ---- SAMPLE 1: CreateUser event ----
+// Source: IAM (global service) → logged in us-east-1
+{
+  "eventVersion": "1.08",
+  "userIdentity": {
+    "type": "IAMUser",                              // WHO: type of principal
+    "principalId": "AIDAIOSFODNN7EXAMPLE",
+    "arn": "arn:aws:iam::123456789012:user/my-admin-user",  // WHO: full ARN
+    "accountId": "123456789012",
+    "userName": "my-admin-user"                     // WHO: human-readable name
+  },
+  "eventTime": "2024-09-15T10:14:23Z",             // WHEN: UTC timestamp
+  "eventSource": "iam.amazonaws.com",              // WHICH service received the call
+  "eventName": "CreateUser",                        // WHAT: specific API action
+  "awsRegion": "us-east-1",                        // NOTE: IAM = global = always us-east-1
+  "sourceIPAddress": "197.210.52.8",               // WHERE: originating IP (Lagos)
+  "userAgent": "AWS Console",                      // HOW: console vs CLI vs SDK
+  "requestParameters": {
+    "userName": "test-cloudtrail-user"             // INPUTS: what was passed to the API
+  },
+  "responseElements": {
+    "user": {                                       // RESULT: the created user object
+      "userName": "test-cloudtrail-user",
+      "userId": "AIDAIOSFODNN7EXAMPLE2",
+      "arn": "arn:aws:iam::123456789012:user/test-cloudtrail-user",
+      "createDate": "Sep 15, 2024 10:14:23 AM"
+    }
+  },
+  "requestID": "F2A8E7C1D9B3EXAMPLE",
+  "eventID": "3a4b5c6d-7e8f-4a2b-91c3-example",   // UNIQUE: event identifier
+  "readOnly": false,                               // false = write/mutating operation
+  "eventType": "AwsApiCall",
+  "managementEvent": true,                         // true = management event (default captured)
+  "recipientAccountId": "123456789012"
+}
+
+
+// ---- SAMPLE 2: DeleteUser event ----
+// Comparison: note responseElements is null (destructive operations return null on success)
+{
+  "userIdentity": {
+    "type": "IAMUser",
+    "arn": "arn:aws:iam::123456789012:user/my-admin-user",
+    "userName": "my-admin-user"
+  },
+  "eventTime": "2024-09-15T10:28:47Z",
+  "eventSource": "iam.amazonaws.com",
+  "eventName": "DeleteUser",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "197.210.52.8",
+  "requestParameters": {
+    "userName": "test-cloudtrail-user"             // The user that was deleted
+  },
+  "responseElements": null,                        // null on success for destructive ops
+  "readOnly": false,
+  "managementEvent": true
+}
+
+
+// ---- SAMPLE 3: DeleteBucket event — with Nigerian IP ----
+// Key forensic fields highlighted in comments
+{
+  "userIdentity": {
+    "type": "IAMUser",
+    "arn": "arn:aws:iam::123456789012:user/my-admin-user"
+  },
+  "eventTime": "2024-09-15T10:31:55Z",
+  "eventSource": "s3.amazonaws.com",
+  "eventName": "DeleteBucket",
+  "awsRegion": "af-south-1",                       // NOTE: S3 is regional → correct region
+  "sourceIPAddress": "197.210.52.8",               // Matches expected Lagos IP — expected
+  "requestParameters": {
+    "bucketName": "test-bucket-cloudtrail-simeon"
+  },
+  "responseElements": null,
+  "managementEvent": true
+}
+
+
+// ---- SAMPLE 4: FAILED action — Access Denied ----
+// What a denied action looks like — errorCode and errorMessage present
+{
+  "userIdentity": {
+    "type": "IAMUser",
+    "arn": "arn:aws:iam::123456789012:user/analyst-user",
+    "userName": "analyst-user"
+  },
+  "eventTime": "2024-09-15T11:02:33Z",
+  "eventSource": "s3.amazonaws.com",
+  "eventName": "CreateBucket",
+  "awsRegion": "af-south-1",
+  "sourceIPAddress": "197.210.52.8",
+  "requestParameters": {
+    "bucketName": "attempted-new-bucket"
+  },
+  "responseElements": null,
+  "errorCode": "AccessDenied",                     // FAILED: IAM policy blocked it
+  "errorMessage": "User: arn:aws:iam::123456789012:user/analyst-user is not authorized to perform: s3:CreateBucket",
+  "readOnly": false,
+  "managementEvent": true
+}
+// Key: errorCode "AccessDenied" means IAM blocked it BEFORE any resource was created.
+// Both successful AND denied API calls are logged — critical for security investigations.
+
+
+// ---- SAMPLE 5: ConsoleLogin event ----
+// Appears in Event History almost immediately (within ~2 minutes)
+// IAM global service → always in us-east-1 folder
+{
+  "userIdentity": {
+    "type": "IAMUser",
+    "arn": "arn:aws:iam::123456789012:user/my-admin-user",
+    "userName": "my-admin-user",
+    "accountId": "123456789012"
+  },
+  "eventTime": "2024-09-15T09:47:12Z",
+  "eventSource": "signin.amazonaws.com",           // NOTE: sign-in service, not iam.amazonaws.com
+  "eventName": "ConsoleLogin",
+  "awsRegion": "us-east-1",
+  "sourceIPAddress": "197.210.52.8",               // Your IP — verify this matches yours
+  "userAgent": "Mozilla/5.0 ...",
+  "requestParameters": null,
+  "responseElements": {
+    "ConsoleLogin": "Success"                      // "Failure" appears here for wrong password
+  },
+  "additionalEventData": {
+    "LoginTo": "https://console.aws.amazon.com/",
+    "MobileVersion": "No",
+    "MFAUsed": "Yes"                               // Confirm MFA was active for this login
+  },
+  "managementEvent": true
+}
+// Metric Filter target for root login alert:
+// { $.userIdentity.type = "Root" && $.eventName = "ConsoleLogin" }
+// Change "IAMUser" to "Root" in this sample to see what a root login looks like.
