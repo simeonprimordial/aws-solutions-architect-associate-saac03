@@ -1,0 +1,73 @@
+openapi: 3.0.3
+
+info:
+  title: Payment Processing API
+  description: Nigerian payment processing API built with AWS API Gateway and Lambda.
+  version: 1.0.0
+
+servers:
+  - url: https://lxdo5hf685.execute-api.us-east-1.amazonaws.com/prod
+
+paths:
+  /payments:
+    post:
+      summary: Process a payment notification
+      description: Accepts payment information and returns a payment confirmation.
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - amount
+                - sender
+                - recipient
+              properties:
+                amount:
+                  type: number
+                  example: 25000
+                sender:
+                  type: string
+                  example: Yetunde Bakare
+                recipient:
+                  type: string
+                  example: Kelechi Okafor
+
+      responses:
+        '200':
+          description: Payment processed successfully
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  status:
+                    type: string
+                    example: Payment Processed
+                  sender:
+                    type: string
+                    example: Yetunde Bakare
+                  recipient:
+                    type: string
+                    example: Kelechi Okafor
+                  amount:
+                    type: string
+                    example: NGN 25,000.00
+                  timestamp:
+                    type: string
+                    format: date-time
+                  reference:
+                    type: string
+                    example: TXN20260624120000
+
+        '400':
+          description: Invalid payment amount
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  error:
+                    type: string
+                    example: Invalid amount
