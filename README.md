@@ -18,15 +18,6 @@ This repository contains all my notes, hands-on labs, diagrams, and projects whi
 
 ---
 
-## 🗂️ Current Progress
-
-**Week 1: Cloud Foundations**
-- [✅] Day 1 – What is Cloud Computing? + AWS Free Tier Lab
-
-*(More days will be added as we progress)*
-
----
-
 ## 📁 Folder Structure
 - `Week-X-.../` → Theory notes, resources, and daily labs
 - `Diagrams/` → Architecture diagrams
